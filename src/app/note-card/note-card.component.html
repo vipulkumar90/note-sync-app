@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <ngx-masonry class="cards row" [options]="masonryOptions">
+    <li
+      ngxMasonryItem
+      *ngFor="let note of allNotes"
+      class="card col-xs-6 col-sm-4 col-md-2"
+    >
+      <div class="main-content">
+        <div class="title">
+          {{ note.title }}
+        </div>
+        <div class="content">
+          {{ note.content }}
+        </div>
+      </div>
+      <div class="actions">
+        <button
+          type="button"
+          [ngbTooltip]="'Delete'"
+          placement="top"
+          (click)="onDelete(note.id)"
+        >
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        <button
+          type="button"
+          [ngbTooltip]="'Background Color'"
+          placement="top"
+        >
+          <i class="fa-solid fa-palette"></i>
+        </button>
+      </div>
+    </li>
+  </ngx-masonry>
+</div>
